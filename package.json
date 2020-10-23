@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    
+    "01_client_side_flat_routing": "concurrently --names \"app-shell,decide   ,inspire  ,checkout \" \"mfserve --listen 3000 --single 01_client_side_flat_routing/app-shell\" \"mfserve --listen 3001 01_client_side_flat_routing/team-decide\" \"mfserve --listen 3002 01_client_side_flat_routing/team-inspire\" \"mfserve --listen 3003 01_client_side_flat_routing/team-checkout\" \"wait-on http://localhost:3000 && opener http://localhost:3000\""
   },
   "repository": {
     "type": "git",
