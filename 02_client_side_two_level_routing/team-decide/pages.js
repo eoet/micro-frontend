@@ -24,6 +24,18 @@ class DecidePages extends HTMLElement {
         console.log("route change (second level / decide)")
         const match = location.pathname.match("/product/(.*)")
         const product = match && products[match[1]]
-        // if (product)
+        if (product) {
+            this.innerHTML = `
+                <a href="/">&lt; home</a> - 
+                <a href="/checkout/cart">view cart &gt;</a>
+                <h1>${product.name}</h1>
+                <img src="https://mi-fr.org/img/${product.img}" width="200"/>
+            `
+        }
+    }
+    disconnectedCallback() {
+        this.unlisten();
     }
 }
+
+window.customElements.define("decide-pages", DecidePages);

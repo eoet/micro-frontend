@@ -22,13 +22,14 @@
             };
 
             function findComponentName(pathName) {
+                console.log('findComponentName -> pathName', pathName);
                 const prefix = Object.keys(routes).find(key => pathName.startsWith(key));
                 return routes[prefix];
             }
 
             function updateTopLevelComponent(location) {
                 console.log("app-shell -> updateTopLevelComponent -> location", location)
-                const next = findComponentName(localStorage.pathname);
+                const next = findComponentName(location.pathname);
                 const current = appContent.firstChild;
                 if (current.nodeName.toLowerCase() !== next) {
                     console.log("app-shell -> updateTopLevelComponent -> change");
